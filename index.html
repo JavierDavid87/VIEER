@@ -1,45 +1,245 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>My Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div id="bar"></div><div id="glow"></div><div id="toast" role="status"></div>
-<nav><a class="logo" href="#home">My<b>.</b>Portfolio</a><ul id="menu"><li><a href="#home">Home</a></li><li><a href="#about">About Me</a></li></ul><button class="btn" id="exp" title="Download your content to publish it">Export site</button></nav>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="description" content="My Academic Portfolio">
+    <meta name="theme-color" content="#050914">
+
+    <title>My Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="bar"></div>
+<div id="glow"></div>
+
+<div id="toast" role="status"></div>
+
+<!-- NAVIGATION -->
+<nav>
+
+    <a href="#home" class="logo">
+        My<b>.</b>Portfolio
+    </a>
+
+    <button id="menuBtn" class="menu-btn">
+        ☰
+    </button>
+
+    <ul id="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+    </ul>
+
+    <button id="exp" class="btn admin-only">
+        Export Site
+    </button>
+
+</nav>
+
+
+<!-- HOME -->
 <header id="home">
-<i class="orb o1"></i><i class="orb o2"></i><i class="ring"></i><i class="ring r2"></i><canvas id="fx"></canvas>
-<div class="hero">
-<p class="hi">Hello, I'm</p>
-<h1 id="hName" class="edit" contenteditable spellcheck="false" data-k="name">Your Name</h1>
-<p class="type" id="type"></p>
-<div class="cta"><a class="btn" href="#quiz">View my work</a><a class="btn ghost" href="#about">About me</a></div>
-<div class="stats"><div><b id="s1">0</b><span>Files</span></div><div><b id="s2">0</b><span>Pictures</span></div><div><b id="s3">0</b><span>Documents</span></div><div><b>6</b><span>Sections</span></div></div>
-</div>
-<a class="scroll" href="#about" aria-label="Scroll down"></a>
+
+    <i class="orb o1"></i>
+    <i class="orb o2"></i>
+
+    <i class="ring"></i>
+    <i class="ring r2"></i>
+
+    <canvas id="fx"></canvas>
+
+    <div class="hero">
+
+        <p class="hi">
+            Hello, I'm
+        </p>
+
+        <!-- ADMIN VERSION -->
+        <h1
+            id="hName"
+            class="edit admin-only"
+            contenteditable="true"
+            spellcheck="false"
+            data-k="name">
+            Your Name
+        </h1>
+
+        <!-- PUBLIC VERSION -->
+        <h1
+            id="publicName"
+            class="public-only">
+        </h1>
+
+        <p id="type" class="type"></p>
+
+        <div class="cta">
+
+            <a href="#quiz" class="btn">
+                View My Work
+            </a>
+
+            <a href="#about" class="btn ghost">
+                About Me
+            </a>
+
+        </div>
+
+
+        <div class="stats">
+
+            <div>
+                <b id="s1">0</b>
+                <span>Files</span>
+            </div>
+
+            <div>
+                <b id="s2">0</b>
+                <span>Pictures</span>
+            </div>
+
+            <div>
+                <b id="s3">0</b>
+                <span>Documents</span>
+            </div>
+
+            <div>
+                <b>6</b>
+                <span>Sections</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <a href="#about" class="scroll"></a>
+
 </header>
 
-<section class="blk rv" id="about">
-<h2>About Me</h2>
-<div class="about">
-<label class="pic" id="pic" tabindex="0"><span>Click to add<br>your photo</span><input id="picIn" type="file" accept="image/*" hidden></label>
-<div>
-<h3 class="edit" contenteditable spellcheck="false" data-k="role">Student · Aspiring Developer</h3>
-<p class="edit" contenteditable spellcheck="false" data-k="bio">Click here to write about yourself: who you are, what you study, and what you enjoy building or learning.</p>
-<div class="facts"><span class="edit" contenteditable data-k="f1">Course / Year</span><span class="edit" contenteditable data-k="f2">School</span><span class="edit" contenteditable data-k="f3">Email</span></div>
-</div>
-</div>
+
+<!-- ABOUT -->
+<section id="about" class="blk rv">
+
+    <h2>About Me</h2>
+
+    <div class="about">
+
+        <label id="pic" class="pic">
+
+            <span>
+                Click to add<br>
+                your photo
+            </span>
+
+            <input
+                id="picIn"
+                type="file"
+                accept="image/*"
+                hidden>
+
+        </label>
+
+
+        <div>
+
+            <!-- ADMIN -->
+            <h3
+                class="edit admin-only"
+                contenteditable="true"
+                data-k="role">
+                Student · Aspiring Developer
+            </h3>
+
+            <p
+                class="edit admin-only"
+                contenteditable="true"
+                data-k="bio">
+                Click here to write about yourself, what you study,
+                your skills, and what you enjoy building or learning.
+            </p>
+
+
+            <!-- PUBLIC -->
+            <h3 id="publicRole" class="public-only"></h3>
+
+            <p id="publicBio" class="public-only"></p>
+
+
+            <div class="facts admin-only">
+
+                <span
+                    class="edit"
+                    contenteditable="true"
+                    data-k="f1">
+                    Course / Year
+                </span>
+
+                <span
+                    class="edit"
+                    contenteditable="true"
+                    data-k="f2">
+                    School
+                </span>
+
+                <span
+                    class="edit"
+                    contenteditable="true"
+                    data-k="f3">
+                    Email
+                </span>
+
+            </div>
+
+
+            <div
+                id="publicFacts"
+                class="facts public-only">
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<div id="sections"></div>
-<div id="lb"><img alt=""></div>
-<footer>Built with HTML, CSS and JavaScript. Everything here is saved.</footer>
 
+<!-- PORTFOLIO SECTIONS -->
+<div id="sections"></div>
+
+
+<!-- IMAGE VIEWER -->
+<div id="lb">
+
+    <button id="lbClose">
+        ×
+    </button>
+
+    <img src="" alt="Preview">
+
+</div>
+
+
+<footer>
+    My Portfolio · Academic Portfolio
+</footer>
+
+
+<!-- ZIP LIBRARY -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<!-- YOUR JAVASCRIPT -->
 <script src="script.js"></script>
+
 </body>
 </html>
+```
